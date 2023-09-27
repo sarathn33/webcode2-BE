@@ -116,7 +116,7 @@ export const getBookings=async(req, res) => {
     let booking;
 
     try {
-        booking=await Bookings.find({user:id})
+        booking=await Bookings.find({user:id}).populate("user").populate("movie")
         
     } catch (error) {
         return console.log(error)

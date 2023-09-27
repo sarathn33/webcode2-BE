@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Booking from "../models/Bookings.js";
 import Movie from "../models/Movie.js";
 import User from "../models/User.js";
 import Bookings from "../models/Bookings.js";
@@ -79,7 +78,7 @@ export const deleteBookings= async(req, res) =>{
     if(!booking){
         return res.status(500).json({message:"Something went wrong"})
     }
-    return res.status(200).json({message:"Delested successfully"})
+    return res.status(200).json({message:"Deleted successfully"})
 }
 
 
