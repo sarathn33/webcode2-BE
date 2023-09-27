@@ -18,6 +18,24 @@ export const getAllusers=async(req,res) =>{
     return res.status(200).json({users});
 }
 
+//to get user by id
+export const getUserById=async(req,res) =>{
+    const id=req.params.id;
+    let users;
+    try{
+        users= await User.findById(id);
+    }catch(error){
+        console.log(error);
+    }
+
+    if (!users){
+        return res.status(500).json({message:"Unexpected Error Occured"})
+    }
+
+    return res.status(200).json({users});
+}
+
+
 //to add a new user
 
 export const signUp =async(req,res)=>{
