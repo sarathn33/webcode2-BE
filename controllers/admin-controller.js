@@ -74,3 +74,20 @@ export const getAllAdmins =async(req,res)=>{
 
     return res.status(200).json({admins});
 }
+
+//get admins by id
+export const getAdminsById =async(req,res)=>{
+    let admins;
+    const id=req.params.id;
+    try{
+        admins= await Admin.findById(id);
+    }catch(error){
+        console.log(error);
+    }
+
+    if (!admins){
+        return res.status(500).json({message:"Unexpected Error Occured"})
+    }
+
+    return res.status(200).json({admins});
+}
